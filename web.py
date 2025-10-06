@@ -18,6 +18,12 @@ def add_todo():
 
 st.title("TODO web app")
 st.subheader("You can enter and complete TODO items in this app")
+
+st.text_input(label="Enter a todo",
+              placeholder="Type here then press enter",
+              on_change=add_todo,
+              key="new_todo")
+
 st.write("List of TODOs")
 
 for index, todo in enumerate(todos):
@@ -27,8 +33,3 @@ for index, todo in enumerate(todos):
         functions.set_todos(todos)
         del st.session_state[todo]
         st.rerun()
-
-st.text_input(label="Enter a todo",
-              placeholder="Type here then press enter",
-              on_change=add_todo,
-              key="new_todo")
